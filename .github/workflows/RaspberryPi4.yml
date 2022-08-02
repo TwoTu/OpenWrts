@@ -14,7 +14,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  External_FILE: configs/External.config
+  EXTERNAL_FILE: configs/External.config
   CONFIG_FILE: configs/RPi4.config
   SYS_CONF_SH: configure.sh
   PACKS: package.sh
@@ -90,7 +90,6 @@ jobs:
       id: package
       run: |
         cd openwrt
-        make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
